@@ -112,4 +112,4 @@ import {NgModule} from '@angular/core';
   providers: [],
 })
 
-export class AngularMaterialModule {}
+export class SharedModule {}

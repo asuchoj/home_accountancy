@@ -8,8 +8,9 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AngularMaterialModule} from './shared/angular-material/angular-material.module';
-import {AuthModule} from './auth/auth.module';
+import {SharedModule} from './modules/shared/shared.module';
+import {AuthModule} from './modules/auth/auth.module';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,8 +22,9 @@ import {AuthModule} from './auth/auth.module';
     ReactiveFormsModule,
     CdkTableModule,
     CdkTreeModule,
-    AngularMaterialModule,
-    AuthModule
+    SharedModule,
+    AuthModule,
+    AppRoutingModule
   ],
   exports: [
     CdkTableModule,
