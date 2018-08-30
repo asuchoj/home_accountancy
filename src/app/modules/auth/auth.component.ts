@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
+  /**
+   * название сайтов, акаунты которых используются для входа в приложение
+   * */
+  accounts: any = [
+    {name: 'Google', icon: 'accountancy-google'},
+    {name: 'VK', icon: 'accountancy-vk'}
+  ];
+
   constructor() {}
 
   ngOnInit() {}
