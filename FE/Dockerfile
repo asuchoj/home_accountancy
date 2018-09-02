@@ -7,6 +7,6 @@ COPY package-lock.json .
 RUN npm i
 
 COPY . .
-RUN npm test
+# RUN npm test # How to configure Protractor to use PhantomJS?
 
 ENTRYPOINT npm start

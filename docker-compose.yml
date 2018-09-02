@@ -3,7 +3,7 @@ version: "3.0"
 services:
   ui:
     build: "FE"
-    ports: ["8080:80"]
+    ports: ["4200:4200"]
     depends_on: [ "oauth2_adapter" ]
   oauth2_adapter:
     build: "BE/oauth2_adapter"
