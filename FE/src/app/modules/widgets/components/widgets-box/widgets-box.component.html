@@ -1,0 +1,15 @@
+<div [ngSwitch]="widget.id">
+  <ng-template ngSwitchCase="1">
+    <red-widget></red-widget>
+  </ng-template>
+
+  <ng-template ngSwitchCase="2">
+    <green-widget></green-widget>
+  </ng-template>
+
+  <ng-template ngSwitchCase="3">
+    <yellow-widget></yellow-widget>
+  </ng-template>
+
+  <ng-template ngSwitchDefault>Нет таких</ng-template>
+</div>

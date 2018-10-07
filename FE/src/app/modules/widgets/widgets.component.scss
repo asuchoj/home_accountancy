@@ -1,0 +1,17 @@
+@import "../../../assets/styles/general-size";
+@import "../../../assets/styles/colors";
+
+.widgets-box{
+  width: $tabletWidth;
+  background-color: $honey-white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.widgets-menu{
+  width: 30%;
+}
+
+.widgets-wrap{
+  width: 70%;
+}

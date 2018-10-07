@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'auth',
   templateUrl: './auth.component.html',
@@ -15,7 +18,16 @@ export class AuthComponent implements OnInit {
     {name: 'VK', icon: 'accountancy-vk'}
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  navigateTo(){
+   // this.http.get('http://localhost:3000/get').subscribe( t => console.log(t));
+    //    // this.http.delete('http://localhost:3000/delete').subscribe( t => console.log(t))
+
+    this.router.navigate(['widgets']).then(() => {
+      console.log('Успешно')
+    })
+  }
 }

@@ -4,7 +4,7 @@
       <div class="auth-elem" *ngFor="let item of accounts">
         <i class="{{item.icon}}"></i>
 
-        <span [textContent]="'Log In with ' + item.name"></span>
+        <span [textContent]="'Log In with ' + item.name" (click)="navigateTo()"></span>
       </div>
     </div>
   </div>
