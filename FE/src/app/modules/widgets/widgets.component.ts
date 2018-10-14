@@ -12,5 +12,4 @@ export class WidgetsComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

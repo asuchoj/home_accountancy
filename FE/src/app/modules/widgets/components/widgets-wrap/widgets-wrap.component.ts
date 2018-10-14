@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {WidgetService} from "../../service/widget.service";
 
 @Component({
   selector: 'widgets-wrap',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetsWrapComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * виджеты определенного user
+   * */
+  usersWidgets: any;
+
+  constructor(private widget: WidgetService) { }
 
   ngOnInit() {
+    this.widget.getUsersWidgets().subscribe(widgets => this.usersWidgets = widgets);
   }
-
 }

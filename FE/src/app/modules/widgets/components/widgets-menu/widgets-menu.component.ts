@@ -9,21 +9,16 @@ import {RedWidgetComponent} from "../red-widget/red-widget.component";
 })
 export class WidgetsMenuComponent implements OnInit {
 
+  /**
+   * Виджеты для меню
+   * */
   widgets: any;
-  myContext = {$implicit: 'World', localSk: 'Svet'};
-
-  public dynamicTabs = [
-    {
-      label: 'User Information',
-      component: RedWidgetComponent
-    }
-  ];
 
   constructor(
     private widget: WidgetService
   ) {
-     this.widget.getWidgets().subscribe( wid => {
-     this.widgets = wid
+     this.widget.getWidgets().subscribe( widgets => {
+     this.widgets = widgets
     })
   }
 

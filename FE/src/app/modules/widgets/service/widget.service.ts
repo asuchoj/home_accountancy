@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {tap} from "rxjs/internal/operators";
+import {map, tap} from "rxjs/internal/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +8,19 @@ import {tap} from "rxjs/internal/operators";
 export class WidgetService {
 
   readonly WIDGET_URL = 'http://localhost:3000/widgets';
+  readonly USERS_WIDGETS_URL = 'http://localhost:3000/widgets/user';
 
   constructor(
     private http: HttpClient
   ) {}
 
   getWidgets(){
-    return this.http.get(this.WIDGET_URL).pipe(
-      tap(t => console.log(t))
+    return this.http.get(this.WIDGET_URL)
+  }
+
+  getUsersWidgets(){
+    return this.http.get(this.USERS_WIDGETS_URL).pipe(
+      map((user: any) => user.widgets)
     )
   }
 }
