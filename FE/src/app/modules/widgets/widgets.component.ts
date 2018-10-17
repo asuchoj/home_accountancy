@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component}from '@angular/core';
+import {WidgetService} from "./service/widget.service";
 
 @Component({
   selector: 'app-widgets',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./widgets.component.scss']
 })
 
-export class WidgetsComponent implements OnInit {
+export class WidgetsComponent {
 
-  constructor() { }
+  /**
+   * виджеты определенного user
+   * */
+  usersWidgets: any;
 
-  ngOnInit() {
+  /**
+   * Виджеты для меню
+   * */
+  widgets: any;
+
+  constructor(private widget: WidgetService) {
+    this.widget.getWidgets().subscribe( widgets => this.widgets = widgets);
+    this.widget.getUsersWidgets().subscribe(widgets => this.usersWidgets = widgets);
   }
 }

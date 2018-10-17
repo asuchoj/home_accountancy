@@ -1,15 +1,19 @@
 import express = require('express');
 import bodyParser = require("body-parser");
 import cors = require("cors");
-
 import {Widgets} from "./models";
 
 const corsOptions = {
-    origin: 'http://localhost:4200',
-    optionsSuccessStatus: 200
+    origin: ["http://localhost:4200", "https://www.googleapis.com/auth/plus.login"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 };
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
 /**
  * Имитация базы
@@ -39,10 +43,6 @@ let usersWidgets: any = {
         id: 3
     }]
 };
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors(corsOptions));
 
 /**
  * получение виджетов для меню
@@ -81,4 +81,33 @@ app.delete('/delete', function (req, res) {
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
+});
+
+import passport = require('passport');
+
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const GOOGLE_CLIENT_ID = '815735416365-a3vvu0e4avquai6sranjqbu9pbpqegur.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '7fOru3skiJ3DVrdS1chErlUn';
+
+passport.use(new GoogleStrategy({
+        clientID: GOOGLE_CLIENT_ID,
+        clientSecret: GOOGLE_CLIENT_SECRET,
+        callbackURL: "http://localhost:4200/widgets"
+    },
+    (accessToken, refreshToken, profile, done) => {
+        console.log('accessToken', accessToken, 'refreshToken', refreshToken, 'profile', profile, 'done',  done)
+    }
+));
+
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login']}));
+
+app.get('/widgets', passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+    debugger;
+        res.redirect('/');
+    });
+
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
 });

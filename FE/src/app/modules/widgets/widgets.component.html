@@ -1,4 +1,46 @@
 <div class="widgets-box">
-  <widgets-menu dnd-list="list" class="widgets-menu"></widgets-menu>
-  <widgets-wrap class="widgets-wrap"></widgets-wrap>
+
+  <div class="widgets-menu">
+
+    <div *ngFor="let item of widgets" >
+      <widgets-list [widget]="item" cdkDrag></widgets-list>
+    </div>
+
+  </div>
+
+  <div class="widgets-wrap">
+
+    <div *ngFor="let item of usersWidgets">
+      <widgets-list [widget]="item"></widgets-list>
+    </div>
+
+  </div>
+
+
+  <!--<div class="widgets-menu"-->
+  <!--cdkDrop-->
+  <!--#todoList="cdkDrop"-->
+  <!--[cdkDropData]="widgets"-->
+  <!--[cdkDropConnectedTo]="[doneList]"-->
+  <!--(cdkDropDropped)="drop($event)">-->
+
+  <!--<div *ngFor="let item of widgets" >-->
+  <!--<widgets-list [widget]="item" cdkDrag></widgets-list>-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div class="widgets-wrap"-->
+  <!--cdkDrop-->
+  <!--#doneList="cdkDrop"-->
+  <!--[cdkDropData]="done"-->
+  <!--[cdkDropConnectedTo]="[todoList]"-->
+  <!--(cdkDropDropped)="drop($event)">-->
+
+  <!--<div *ngFor="let item of usersWidgets" cdkDrag>-->
+  <!--<widgets-list [widget]="item" cdkDrag></widgets-list>-->
+  <!--</div>-->
+
+  <!--</div>-->
 </div>
+

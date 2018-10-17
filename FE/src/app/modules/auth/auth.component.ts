@@ -18,16 +18,11 @@ export class AuthComponent implements OnInit {
     {name: 'VK', icon: 'accountancy-vk'}
   ];
 
-  constructor(private router: Router) {}
+  constructor( private http: HttpClient) {}
 
   ngOnInit() {}
 
   navigateTo(){
-   // this.http.get('http://localhost:3000/get').subscribe( t => console.log(t));
-    //    // this.http.delete('http://localhost:3000/delete').subscribe( t => console.log(t))
-
-    this.router.navigate(['widgets']).then(() => {
-      console.log('Успешно')
-    })
+    this.http.get('http://localhost:3000/auth/google').subscribe( t => console.log(t));
   }
 }
