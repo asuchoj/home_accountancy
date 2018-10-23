@@ -9,6 +9,7 @@ import {YellowWidgetComponent} from './components/yellow-widget/yellow-widget.co
 import {WidgetsListComponent} from './components/widgets-list/widgets-list.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 
+
 @NgModule({
   exports: [
     DragDropModule
@@ -16,7 +17,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
   imports: [
     WidgetsRoutingModule,
     CommonModule,
-
+    DragDropModule
   ],
   declarations: [
     WidgetsComponent,

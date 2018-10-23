@@ -58,7 +58,9 @@ app.all('/*', (req, res, next) => {
     next();
 });
 
-app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login']}));
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login']}), (req, res) => {
+    console.log(req, res)
+});
 
 /**
  * получение виджетов для определенного юзера
@@ -91,9 +93,8 @@ app.delete('/delete', (req, res) => {
 /**
  * получение виджетов для меню
  * */
-app.get('/widgets', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+app.get('/widgets',(req, res) => {
     res.send(widgets);
-    res.redirect('/');
 });
 
 app.listen(3000, function () {
