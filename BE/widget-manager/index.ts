@@ -5,19 +5,19 @@ import {Widgets} from "./models";
 import passport = require('passport');
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const GOOGLE_CLIENT_ID = '815735416365-a3vvu0e4avquai6sranjqbu9pbpqegur.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET = '7fOru3skiJ3DVrdS1chErlUn';
+const GOOGLE_CLIENT_ID = '472973084132-kkp6gdcj80d2s8kn2mubc6hhu17ufcfg.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '9cpYqxvYPCYt8jaW3cbHvNxt';
 const app = express();
 
 const corsOptions = {
-    origin: ["http://localhost:4200", "https://www.googleapis.com/auth/plus.login"],
+    origin: ["http://localhost:4200"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204
 };
 
 /**
- * Имитация базы
+ * base imitation
  * */
 const widgets: Array<Widgets> = [
     {
@@ -46,7 +46,6 @@ let usersWidgets: any = {
 };
 
 passport.use(new GoogleStrategy({clientID: GOOGLE_CLIENT_ID, clientSecret: GOOGLE_CLIENT_SECRET, callbackURL: "http://localhost:4200"}, (accessToken, refreshToken, profile, done) => {
-    console.log('accessToken', accessToken, 'refreshToken', refreshToken, 'profile', profile, 'done',  done)
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -63,35 +62,35 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.g
 });
 
 /**
- * получение виджетов для определенного юзера
+ * get widgets for a specific user
  * */
 app.get('/widgets/user', (req, res) => {
     res.send(usersWidgets);
 });
 
 /**
- * обновление виджета
+ * update widget
  * */
 app.put('/put', (req, res) => {
     res.send('work put')
 });
 
 /**
- * создание виджета
+ * create widget
  * */
 app.delete('/delete-widgets', (req, res) => {
     res.send('work post')
 });
 
 /**
- * удаление виджета
+ * delete widget
  * */
 app.delete('/delete', (req, res) => {
     res.send('work delete')
 });
 
 /**
- * получение виджетов для меню
+ * get widgets menu
  * */
 app.get('/widgets',(req, res) => {
     res.send(widgets);

@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class AuthComponent implements OnInit {
 
   /**
-   * название сайтов, акаунты которых используются для входа в приложение
+   * name of the sites which accounts are used to enter the application
    * */
   accounts: any = [
     {name: 'Google', icon: 'accountancy-google'},

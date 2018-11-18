@@ -8,7 +8,7 @@ import {Component, Input} from '@angular/core';
 export class WidgetsListComponent {
 
   /**
-   * Виджет, который требуется отрисовать
+   * Widget to draw
    * */
   @Input() widget: any;
 }

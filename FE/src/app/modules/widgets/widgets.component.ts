@@ -11,12 +11,12 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag
 export class WidgetsComponent {
 
   /**
-   * виджеты определенного user
+   * specific user widgets
    * */
   usersWidgets: any;
 
   /**
-   * Виджеты для меню
+   * Widgets for menu
    * */
   widgets: any;
 
