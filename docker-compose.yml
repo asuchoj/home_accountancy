@@ -1,9 +1,11 @@
 version: "3.0"
 
-#services:
-#  ui:
-#    build: "FE"
-#    ports: ["4200:4200"]
-#    depends_on: [ "oauth2_adapter" ]
-#  oauth2_adapter:
-#    build: "BE/oauth2nmp _adapter"
+services:
+  ui:
+    build: "FE"
+    depends_on: [ "widget-manager" ]
+  widget-manager:
+    build: "BE/widget-manager"
+  proxy:
+    build: "proxy"
+    ports: ["8080:80"]

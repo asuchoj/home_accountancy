@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:alpine
 
 WORKDIR /app
 
@@ -9,4 +9,4 @@ RUN npm i
 COPY . .
 # RUN npm test # How to configure Protractor to use PhantomJS?
 
-ENTRYPOINT npm run ng serve 0.0.0.0:80
+ENTRYPOINT npm run ts-node index.ts
