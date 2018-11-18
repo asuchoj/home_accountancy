@@ -9,4 +9,4 @@ RUN npm i
 COPY . .
 # RUN npm test # How to configure Protractor to use PhantomJS?
 
-ENTRYPOINT npm run ng serve 0.0.0.0:80
+ENTRYPOINT npm run ng serve
