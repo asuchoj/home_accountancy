@@ -23,6 +23,6 @@ export class AuthComponent implements OnInit {
   ngOnInit() {}
 
   navigateTo(){
-    this.http.get('http://localhost:3000/auth/google').subscribe( t => console.log(t));
+    this.http.get('/api/widget-manager/auth/google').subscribe( t => console.log(t));
   }
 }
