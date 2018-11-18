@@ -7,8 +7,8 @@ import {map, tap} from "rxjs/internal/operators";
 })
 export class WidgetService {
 
-  readonly WIDGET_URL = 'http://localhost:3000/widgets';
-  readonly USERS_WIDGETS_URL = 'http://localhost:3000/widgets/user';
+  readonly WIDGET_URL = '/api/widgets-manager/widgets';
+  readonly USERS_WIDGETS_URL = '/api/widgets-manager/widgets/user';
 
   constructor(
     private http: HttpClient

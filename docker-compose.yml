@@ -4,6 +4,7 @@ services:
   ui:
     build: "FE"
     depends_on: [ "widget-manager" ]
+    ports: ["8081:80"]
   widget-manager:
     build: "BE/widget-manager"
   proxy:
